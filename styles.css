@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: rgb(12, 18, 44);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
+  min-height: 100vh;
+  background-image: url("images/bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.main-container {
+  margin: 4rem 2rem;
+}
+
+/* MAIN-INFO(images) */
+
+.main-info {
+  background-color: var(--Dark-Blue);
+  padding: 2rem;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 110px;
+}
+
+.img-container {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.img-info {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--Very-Dark-Blue);
+  transition: transform 0.2s ease-in;
+  cursor: pointer;
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+/* STORAGE INFO */
+
+.storage-info {
+  margin-top: 1.5rem;
+  background-color: var(--Dark-Blue);
+  padding: 1.5rem 1.5rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+.progress-bar-container {
+  margin-top: 1rem;
+}
+
+.progress-bar-info {
+  margin: 0.75rem 0 2.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar-wrapper {
+  background-color: rgba(12, 18, 44, 0.7);
+  border-radius: 15px;
+}
+.progress-bar {
+  border-radius: 15px;
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  max-width: 70%;
+
+  position: relative;
+  overflow: hidden;
+  animation: animation-scale-progress-bar 1.5s 0.3s 1 linear;
+}
+
+.circle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  right: 1%;
+}
+
+/* I implemented this so my progress bar would have a height and width since 
+   my circle class is positioned absolute and taken out of the document flow. */
+.empty-div {
+  width: 1rem;
+  height: 1rem;
+}
+
+.memory-left {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  color: var(--Grayish-Blue);
+  position: absolute;
+  left: 15%;
+  bottom: -25%;
+  transition: all 0.3s ease;
+}
+
+.memory-span {
+  color: var(--Very-Dark-Blue);
+  font-weight: 700;
+  font-size: 2.3rem;
+}
+
+@media (min-width: 540px) {
+  .memory-left {
+    left: 35%;
+  }
+
+  .main-info,
+  .storage-info {
+    max-width: 45rem;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-info {
+    margin-right: 2rem;
+  }
+  .main-info,
+  .storage-info {
+    min-width: 23rem;
+  }
+
+  .main-container {
+    display: flex;
+  }
+
+  .memory-left:hover {
+    transform: translateY(-10px);
+    background-color: hsl(228, 56%, 26%);
+    outline: 1px solid hsl(6, 100%, 80%);
+  }
+
+  .memory-left:hover .memory-span {
+    color: hsl(243, 100%, 93%);
+  }
+
+  .img-info:hover {
+    transform: scale(1.13);
+  }
+
+  @keyframes animation-scale-progress-bar {
+    0% {
+      max-width: 1%;
+    }
+
+    25% {
+      max-width: 17.5%;
+    }
+
+    50% {
+      max-width: 35%;
+    }
+
+    75% {
+      max-width: 47.5%;
+    }
+
+    100% {
+      max-width: 70%;
+    }
+  }
+}
