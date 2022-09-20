@@ -174,7 +174,7 @@ body {
     max-width: 8rem;
     position: absolute;
     left: 60%;
-    top: -25%;
+    top: -30%;
     transition: all 0.3s ease;
     border-bottom-right-radius: 0;
   }
